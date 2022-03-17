@@ -12,16 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import video.free.unlimited.Modal.VideoModal;
+import video.free.unlimited.Modal.VideoModalapi;
 import video.free.unlimited.R;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.holder> {
-    ArrayList<VideoModal> arrayList;
+    List<String> data;
     Context context;
 
-    public VideoAdapter(ArrayList<VideoModal> arrayList, Context context) {
-        this.arrayList = arrayList;
+    public VideoAdapter(List<String>data, Context context) {
+        this.data = data;
         this.context = context;
     }
 
@@ -35,7 +37,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.holder> {
 
     @Override
     public void onBindViewHolder(@NonNull holder holder, int position) {
-        holder.videoView.setVideoPath(arrayList.get(position).getUrl());
+//
+        String videourl = data.get(position);
+        holder.videoView.setVideoPath(videourl);
 
 //        // finding videoview by its id
 //        VideoView videoView = findViewById(R.id.videoView);
@@ -66,8 +70,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.holder> {
 //        videoView.start();
 
 
-
-
 //
 //        MediaController mediaController = new MediaController(context);
 //        mediaController.setAnchorView(holder.videoView);
@@ -91,7 +93,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.holder> {
 
     @Override
     public int getItemCount() {
-        return arrayList.size();
+        return data.size();
     }
 
     public class holder extends RecyclerView.ViewHolder {

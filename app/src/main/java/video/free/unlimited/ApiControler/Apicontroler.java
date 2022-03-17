@@ -17,7 +17,7 @@ public class Apicontroler {
 //                .readTimeout(60, TimeUnit.SECONDS)
 //                .writeTimeout(60, TimeUnit.SECONDS);
         retrofit = new Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl("https://mytelecom.in/short_video/")
                 .addConverterFactory(GsonConverterFactory.create())
 //                .client(httpClient.build())
                 .build();
